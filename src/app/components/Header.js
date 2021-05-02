@@ -43,6 +43,7 @@ height: 70px;
 background: #090b13;
 display: flex;
 padding: 0 36px;
+overflow-x: hidden;
 `;
 
 const Logo = Styled.img`
