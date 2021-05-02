@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./app/components/Header";
 import Home from "./app/pages/Home";
 import Detail from "./app/pages/Detail";
+import Login from "./app/pages/Login";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -12,6 +13,9 @@ function App() {
       <Router>
         <Header />
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/detail">
             <Detail />
           </Route>
