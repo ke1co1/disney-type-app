@@ -1,35 +1,23 @@
 import React from "react";
 import Styled from "styled-components";
+import { selectMovies } from "../../features/movie/movieSlice";
+import { useSelector } from "react-redux";
 
 function Movies() {
+  const movies = useSelector(selectMovies);
+
+  console.log("these are the movies", movies);
+
   return (
     <Container>
       <h4>Recommended for You</h4>
       <Content>
-        <Wrap>
-          <img src="/images/viewers-pixar.png" alt="" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-pixar.png" alt="" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-pixar.png" alt="" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-pixar.png" alt="" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-pixar.png" alt="" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-pixar.png" alt="" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-pixar.png" alt="" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-pixar.png" alt="" />
-        </Wrap>
+        {movies &&
+          movies.map((movie) => (
+            <Wrap key={movie.id}>
+              <img src={movie.cardImg} alt="" />
+            </Wrap>
+          ))}
       </Content>
     </Container>
   );
