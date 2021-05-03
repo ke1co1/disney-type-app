@@ -2,12 +2,13 @@ import firebase from "firebase";
 
 const firebaseConfig = {
   apiKey: `${process.env.REACT_APP_API_KEY}`,
-  authDomain: "disneyplus-clone-a33d5.firebaseapp.com",
-  projectId: "disneyplus-clone-a33d5",
-  storageBucket: "disneyplus-clone-a33d5.appspot.com",
-  messagingSenderId: "37918794208",
-  appId: "1:37918794208:web:dbe9842dfe1dda522a4b85",
-  measurementId: "G-DRVLJKWRWG",
+  authDomain: "disney-2de1b.firebaseapp.com",
+  databaseURL: "https://disney-2de1b-default-rtdb.firebaseio.com",
+  projectId: "disney-2de1b",
+  storageBucket: "disney-2de1b.appspot.com",
+  messagingSenderId: "861158444831",
+  appId: "1:861158444831:web:75082e175a3a760ccf2a2a",
+  measurementId: "G-ZQBPDXQJ4X",
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);

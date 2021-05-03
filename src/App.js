@@ -5,7 +5,7 @@ import Home from "./app/pages/Home";
 import Detail from "./app/pages/Detail";
 import Login from "./app/pages/Login";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (

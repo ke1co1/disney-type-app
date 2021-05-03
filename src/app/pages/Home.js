@@ -13,10 +13,10 @@ function Home() {
   useEffect(() => {
     db.collection("movies").onSnapshot((snapshot) => {
       let tempMovies = snapshot.docs.map((doc) => {
+        console.log("db movies", tempMovies);
         return { id: doc.id, ...doc.data() };
       });
       dispatch(setMovies(tempMovies));
-      // console.log(tempMovies);
     });
   }, []);
 

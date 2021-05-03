@@ -30,7 +30,6 @@ function Header() {
         history.push("/");
       }
     });
-    console.log(`${process.env.REACT_APP_API_KEY}`);
   }, []);
 
   const signIn = () => {
