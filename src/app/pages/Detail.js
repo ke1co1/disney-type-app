@@ -1,41 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Styled from "styled-components";
+import { useParams } from "react-router-dom";
+import db from "../firebase";
 
 function Detail() {
+  const { id } = useParams(); //movie id
+  const [movie, setMovie] = useState();
+
+  useEffect(() => {
+    // Get movie from db
+    db.collection("movies")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          setMovie(doc.data());
+        }
+      });
+  }, []);
+
   return (
     <Container>
-      <Background>
-        <img src="/images/bao.png" alt="" />
-      </Background>
-      <ImageTitle>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/fr/1/1a/Bao_logo.png"
-          alt=""
-        />
-      </ImageTitle>
-      <Controls>
-        <PlayButton>
-          <img src="/images/play-icon-black.png" alt="" />
-          <span>Play</span>
-        </PlayButton>
-        <TrailerButton>
-          <img src="/images/play-icon-white.png" alt="" />
-          <span>Trailer</span>
-        </TrailerButton>
-        <AddButton>
-          <span>+</span>
-        </AddButton>
-        <GroupWatchButton>
-          <img src="/images/group-icon.png" alt="" />
-        </GroupWatchButton>
-      </Controls>
-      <SubTitle>2018 - 7m - Family, Fantasy, Kids, Animation</SubTitle>
-      <Description>
-        A Chinese mom who's sad when her grown son leaves Lorem ipsum dolor sit
-        amet consectetur adipisicing elit. Libero mollitia earum, nam assumenda
-        possimus veritatis quaerat unde neque expedita provident rem? Vel amet
-        maiores reprehenderit quibusdam tempore est tempora dolores!
-      </Description>
+      {movie && (
+        <>
+          <Background>
+            <img src={movie.backgroundImg} alt="" />
+          </Background>
+          <ImageTitle>
+            <img src={movie.titleImg} alt="" />
+          </ImageTitle>
+          <Controls>
+            <PlayButton>
+              <img src="/images/play-icon-black.png" alt="" />
+              <span>Play</span>
+            </PlayButton>
+            <TrailerButton>
+              <img src="/images/play-icon-white.png" alt="" />
+              <span>Trailer</span>
+            </TrailerButton>
+            <AddButton>
+              <span>+</span>
+            </AddButton>
+            <GroupWatchButton>
+              <img src="/images/group-icon.png" alt="" />
+            </GroupWatchButton>
+          </Controls>
+          <SubTitle>{movie.subTitle}</SubTitle>
+          <Description>{movie.description}</Description>
+        </>
+      )}
     </Container>
   );
 }
