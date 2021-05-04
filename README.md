@@ -1,3 +1,7 @@
+
+![appmock](https://user-images.githubusercontent.com/39881044/117024476-060ec500-acc8-11eb-8704-7407366a4db5.png)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
